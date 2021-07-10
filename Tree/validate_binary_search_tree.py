@@ -48,24 +48,45 @@ class ValidBST:
     
         # return True
 
-        # solution 3: inorder traversal
+        # # solution 3: inorder traversal
+        # # time: O(n)
+        # # space:O(n)
+        # def helper(root: TreeNode) -> bool:
 
-        
-        def helper(root: TreeNode) -> bool:
-
-            if not root:
-                return True
+        #     if not root:
+        #         return True
             
-            l = helper(root.left)
-            if root.val <= self.prev:
-                return False
-            self.prev = root.val
-            r = helper(root.right)
+        #     l = helper(root.left)
+        #     if root.val <= self.prev:
+        #         return False
+        #     self.prev = root.val
+        #     r = helper(root.right)
 
-            return l and r
+        #     return l and r
         
-        self.prev = -math.inf
-        return helper(root)
+        # self.prev = -math.inf
+        # return helper(root)
+        
+        # solution 4: stack by using iteration inorder traversal
+        # time: O(n)
+        # space: O(n)
+        if not root:
+            return True
+        
+        stack, prev = [], -math.inf
+
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
+            
+            root = stack.pop()
+            if root.val <= prev:
+                return False
+            prev = root.val
+            root = root.right
+        
+        return True 
 
 
     def call_function(self) -> None:
