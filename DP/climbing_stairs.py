@@ -53,3 +53,6 @@ class climbStairs:
             second = next
         
         return second
+
+    def call_function(self) -> None:
+        print(self.climbStairs(4))
