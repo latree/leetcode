@@ -9,8 +9,9 @@
 # from Tree.convert_sorted_tree_to_bst import sortedArrayToBST
 # from DP.climbing_stairs import climbStairs
 # from DP.best_ime_buy_sell_stock import maxProfit
-from DP.maximum_subarray import maxSubArray
+# from DP.maximum_subarray import maxSubArray
+from DP.house_robber import Rob
 
 if __name__ == '__main__':
 
-    maxSubArray().call_function()
+    Rob().call_function()
