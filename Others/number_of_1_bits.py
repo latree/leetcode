@@ -1,16 +1,21 @@
+class hammingDistance:
+    def hammingDistance(self, x: int, y: int) -> int:
+        # # solution 1: build in bit counting function
+        # return bin(x ^ y).count('1')
 
-class num1Bits:
-    def hammingWeight(self, n: int) -> int:
-        # # solution 1: 每一位做一次 &。 
-        # bits = 0
-        # mask = 1
+        # # solution 2: count xor by self
+        # xor = x ^ y
+        # distance = 0
+        # while xor:
+        #     if xor & 1:
+        #         distance += 1
+        #     xor >>= 1
+        # return distance
 
-        # for i in range(32):
-        #     if (n & mask) != 0:
-        #         bits += 1
-            
-        #     mask <<= 1
-        # return bits
-
-        # solution 2:
-        
+        # solution 3 Brian Kernighan's Algorithm
+        xor = x ^ y
+        distance = 0
+        while xor:
+            distance += 1
+            xor &= xor - 1
+        return distance
