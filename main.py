@@ -11,17 +11,10 @@
 # from DP.best_ime_buy_sell_stock import maxProfit
 # from DP.maximum_subarray import maxSubArray
 # from DP.house_robber import Rob
-from Design.min_stack import MinStack
+# from Design.min_stack import MinStack
+# from Others.valid_parentheses import validParentheses
+# from Others.missing_number import missingNumber
+from String.verify_alien_dict import AlienSorted
 
 if __name__ == '__main__':
-
-    # Rob().call_function()
-    obj = MinStack()
-    obj.push(-2)
-    obj.push(0)
-    obj.push(-3)
-    
-    obj.getMin()
-    obj.pop()
-    obj.top()
-    obj.getMin()
+    AlienSorted().call_function()

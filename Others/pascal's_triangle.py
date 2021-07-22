@@ -7,5 +7,16 @@ class pascalTriangle:
             return []
         
         res = [[1]]
-        for _ in range(1, numRows]):
-            
+        for i in range(1, numRows):
+            open_one = 1
+            close_one = 1
+            last_ele_length = len(res[-1])
+            cur_row = [open_one]
+            j = 0
+            while j + 1 < last_ele_length:
+                cur_row.append(res[-1][j] + res[-1][j + 1])
+                j += 1
+            cur_row.append(close_one)
+            res.append(cur_row)
+        
+        return res
