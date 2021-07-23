@@ -14,7 +14,8 @@
 # from Design.min_stack import MinStack
 # from Others.valid_parentheses import validParentheses
 # from Others.missing_number import missingNumber
-from String.verify_alien_dict import AlienSorted
+# from String.verify_alien_dict import AlienSorted
+from Array.leftmost_col_at_least_one import leftMostColumnWithOne
 
 if __name__ == '__main__':
-    AlienSorted().call_function()
+    leftMostColumnWithOne().call_function()
