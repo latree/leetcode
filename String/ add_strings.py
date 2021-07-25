@@ -10,6 +10,8 @@ class addStrings:
         # return str(to_int(num1) + to_int(num2))
 
         # solution 2:
+        # Time: O(n) n is max(len(num1), len(num2))
+        # Space: O(n)
         carry = 0
         res = []
         p1, p2 = len(num1) - 1, len(num2) - 1
