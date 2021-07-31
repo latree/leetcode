@@ -15,7 +15,8 @@
 # from Others.valid_parentheses import validParentheses
 # from Others.missing_number import missingNumber
 # from String.verify_alien_dict import AlienSorted
-from Array.leftmost_col_at_least_one import leftMostColumnWithOne
+# from Array.leftmost_col_at_least_one import leftMostColumnWithOne
+from Array.subarray_sum_equals_k import subarraySum
 
 if __name__ == '__main__':
-    leftMostColumnWithOne().call_function()
+    subarraySum().call_function()
