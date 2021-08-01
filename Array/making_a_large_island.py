@@ -1,3 +1,4 @@
+from functools import total_ordering
 from typing import List
 
 class largestIsland:
@@ -34,6 +35,14 @@ class largestIsland:
         # solution 2: dfs with map
         # Time:O(2*(n**2)) which is O(n**2)
         # Space:O(n**2)
+        # 这道题的主题思路：
+        # 先把整个grid里面的岛划分成不同的groupid，同时再生成一个groupid: total_element 一个hashmap
+        # 有了这个map 在iterate 所有的0 的位置去把能够相邻的岛的total_element 都加起来 取一个最大值
+
+        # 有很多的小trick在这个题里
+        # 1. neighbors function的用法之前没有见到过
+        # 2. max(area.values() or [0]) 
+
         N = len(grid)
 
         def neighbors(r, c):
