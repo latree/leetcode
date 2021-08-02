@@ -18,7 +18,8 @@
 # from Array.leftmost_col_at_least_one import leftMostColumnWithOne
 # from Array.subarray_sum_equals_k import subarraySum
 # from Array.making_a_large_island import largestIsland
-from Tree.lowest_common_ancestor_of_binary_tree_III import lowestCommonAncestor
+# from Tree.lowest_common_ancestor_of_binary_tree_III import lowestCommonAncestor
+from Array.continuous_subarray_sum import Solution
 
 if __name__ == '__main__':
-    lowestCommonAncestor().call_function()
+    Solution().call_function()
