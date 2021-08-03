@@ -7,8 +7,8 @@ class Solution:
         # # solution 1： DFS
         # Time: O(n) n is size of treenode
         # Space: O(n) n is size of treenode
-        # # 这个dfs解法非常巧妙的运用到了先往最右边走再return 再走左边
-        # # 只要每到新的一层，就先把最左边的node 加进path里
+        # 这个dfs解法非常巧妙的运用到了先往最右边走再return 再走左边
+        # 只要每到新的一层，就先把最左边的node 加进path里
         # if not root:
         #     return []
         
