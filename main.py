@@ -1,8 +1,3 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
 # from Tree.validate_binary_search_tree import ValidBST
 # from Tree.symmetric_tree import SymmetricTree
 # from Tree.binary_bree_level_order_traversal import LevelOrder
@@ -19,7 +14,8 @@
 # from Array.subarray_sum_equals_k import subarraySum
 # from Array.making_a_large_island import largestIsland
 # from Tree.lowest_common_ancestor_of_binary_tree_III import lowestCommonAncestor
-from Array.continuous_subarray_sum import Solution
+# from Array.continuous_subarray_sum import Solution
+from String.remove_invalid_parentheses import Solution
 
 if __name__ == '__main__':
     Solution().call_function()
