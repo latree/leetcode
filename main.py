@@ -19,7 +19,10 @@
 # from Array.exclusive_time_of_functions import Solution
 # from Math.expression_add_operators import Solution
 # from String.group_shifted_strings import Solution
-from Array.accounts_merge import Solution
+# from Array.accounts_merge import Solution
+# from String.word_break import Solution
+# from String.word_break_ii import Solution
+from String.valid_number import Solution
 
 if __name__ == '__main__':
     Solution().call_function()
