@@ -2,6 +2,8 @@ from typing import List
 
 class Solution:
     def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
+        # Time: O(m + n)
+        # space: O(m + n)
         i = j = 0
         res = []
         while i < len(firstList) and j < len(secondList):
