@@ -2,8 +2,8 @@ import math
 
 class Solution:
     def divide(self, dividend: int, divisor: int) -> int:
-        # 小知识点，math.inf和 MAX_INT 不是同一个数
-        # 我们需要先把两个数转换成正数，因为如果有负数的话那么最开始有一个bit 的符号位，不好操作
+# 小知识点，math.inf和 MAX_INT 不是同一个数
+# 我们需要先把两个数转换成正数，因为如果有负数的话那么最开始有一个bit 的符号位，不好操作
         # Time: O(logn)
         # Space:O(1)
         # Constants.
