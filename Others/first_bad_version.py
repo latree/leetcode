@@ -11,4 +11,14 @@ class Solution:
         :type n: int
         :rtype: int
         """
+        start = 1
+        end = n
+        while start + 1 < end:
+            mid = (start + end) // 2
+            if isBadVersion(mid):
+                end = mid
+            else:
+                start = mid
         
+        return start if isBadVersion(start) else end
+            
