@@ -29,12 +29,3 @@ class Solution:
             start += 1
             end -= 1
 
-        
-
-
-
-
-
-
-1 5 8 5 7 6 4 3 1
-
