@@ -1,0 +1,1 @@
+# BST 的一个优化方式是通过在TreeNode 里增加一个var
