@@ -5,6 +5,22 @@ from Data_Structure.tree_node import TreeNode
 
 class ValidBST:
     def isValidBST(self, root: TreeNode) -> bool:
+        # 这是记忆当中的做法
+        # 可以想象一下：如果把BST看招中序遍历打印出来的时候那么肯定是
+        # [low....root.val....high]
+        # 那么问题就在于如果设定左边界和右边界。在第一层进入的时候你只知道root并不知道左右边界的边界值是什么。
+        # 只有在进入第一层root.left 的时候你才知道你的left部分的右边界就是root.val
+        # 同理 只有在进入第一层root.right 的时候你才知道你的right部分的左边界就是root.val
+        # 一个比较容易想错的case 在这篇文章里有提到
+        # https://labuladong.gitee.io/algo/2/19/25/
+            #        10
+            #     /         \
+            # 5               15
+            #                /
+            #             6
+            
+        # 显然 6 不能出现在15的左子树里
+
         # # solution 1: straight forward recursion  
         # # time:O(n) n should be the total number of tree nodes. 
         # # space: avg: O(2**math.log2(n-1)) n is the total number of nodes. O(2**math.log2(n-1)) stands for max
