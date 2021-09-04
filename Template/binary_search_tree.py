@@ -13,3 +13,6 @@ void BST(TreeNode root, int target) {
 
 
 # 我们通过使用辅助函数，增加函数参数列表，在参数中携带额外信息，将这种约束传递给子树的所有节点，这也是二叉树算法的一个小技巧吧。比如leetcode 98题Validate Binary Search Tree
+
+# 讲了中序遍历对 BST 的重要意义
+# 写了 BST 的基本操作
