@@ -16,3 +16,5 @@ void BST(TreeNode root, int target) {
 
 # 讲了中序遍历对 BST 的重要意义
 # 写了 BST 的基本操作
+
+# ****以我的刷题经验，我们要尽可能避免递归函数中调用其他递归函数
