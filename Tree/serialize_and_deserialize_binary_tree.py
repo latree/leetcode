@@ -1,6 +1,12 @@
 from Data_Structure.tree_node import TreeNode
 from typing import Optional, List
 import math
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
 class Codec:
     def serialize(self, root):
@@ -32,6 +38,8 @@ class Codec:
         :type data: str
         :rtype: TreeNode
         """
+        # 刚开始的时候以为只用一种遍历的顺序是找不到唯一解，但是如果遍历的结果里是把所有空的node都已
+        # 标注出来的话那么一种遍历形势也是唯一解
         def helper(nodes: List[str]) -> TreeNode:
             if not nodes:
                 return
