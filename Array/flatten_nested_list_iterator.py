@@ -37,22 +37,7 @@ class NestedIterator:
                 self.cur_stack.append(nested_integer)
         
         return len(self.cur_stack) != 0
-                
-                
-            
-            
-
-            
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
+     
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []
 # while i.hasNext(): v.append(i.next())
