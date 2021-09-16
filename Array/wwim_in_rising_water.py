@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
@@ -7,7 +8,6 @@ class Solution:
         n = len(grid)
         dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
         
-        dp =[[math.inf for i in range(n)] for j in range(n)]
         def dfs(min_time, r, c) -> bool:
             if r == n - 1 and c == n - 1:
                 return True
