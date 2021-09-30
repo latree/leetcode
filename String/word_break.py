@@ -39,7 +39,6 @@ class Solution:
                     break
         return dp[len(s)]
 
-
     def call_function(self) -> None:
         self.wordBreak("catsanddog", ["cat","cats","and","sand","dog"])
         
@@ -54,3 +53,50 @@ class Solution:
 #     (7,9)dog                (7,9)dog
 
 # [True, False, False, True, True, False, False, True, False, False, True]
+
+# second round
+# #         solution 1: dfs
+# # draw tree:
+# #      applepenapple
+# # apple     penapple
+# #          pen.  apple 
+
+# # ["cats","dog","sand","and","cat"]
+# #         catsandog
+# # cats.    andog
+# #           and. og
+#         wordDictSet = set(wordDict)
+#         memory = {}
+#         def dfs(cut_s):
+#             if not cut_s or cut_s in wordDictSet: 
+#                 return True
+#             if cut_s in memory:
+#                 return memory[cut_s]
+            
+#             res = False
+#             for i in range(1, len(cut_s)):
+#                 if cut_s[:i] not in wordDictSet:
+#                     continue 
+#                 right = dfs(cut_s[i:])
+#                 res = res or right
+                
+#             memory[cut_s] = res
+                
+#             return memory[cut_s]
+        
+#         return dfs(s)
+
+        # solution 2: dp
+        # dp[i]: till this point if the s can be break into several words
+        # dp[n] = dp[i] and True if s[i:n] in wordDictSet
+        # wordDictSet = set(wordDict)
+        # m = len(s)
+        # dp = [False for _ in range(len(s) + 1)]
+        # dp[0] = True
+        
+        # for i in range(1, m + 1):
+        #     for j in range(i):
+        #         wb = True if s[j:i] in wordDictSet else False
+        #         dp[i] = dp[i] or (dp[j] and wb)
+            
+        # return dp[len(s)]
