@@ -13,6 +13,9 @@ class Solution:
             # n**2 不是特别明白 
             # 最后一个w是建立word_set需要的时间
 
+        # second round notes:
+        # dp[i] till index i, there are several solutions setence. 
+        # dp[i] = dp[i].append(dp[j]+s[j:i]  if dp[j] exist and s[j:i] in wordDictSet)
         if set(Counter(s).keys()) > set(Counter("".join(wordDict)).keys()):
             return []
 
