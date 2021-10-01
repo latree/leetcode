@@ -44,3 +44,64 @@ class Solution:
 #                                1
 #      2(+1)                 8(+7)                        31(+30)
     #    3(2+1)      9(8+1), 15(8+7), 38(8+30)               32(+1)
+
+
+# ********************second round
+# #                                2+9
+# #                            [1,4,6,7,8,20]
+# #                                   2+8                          7+2               15+2
+# #                              [4,6,7,8,20]                     [20]             [20]
+# #                  2+6                        7+2      15+2
+# #              [6,7,8,20]                   [20]      [20]
+# #         2+4               7+2    15
+# #         [7,8.20]         [20]    []
+# #   2+2        7+2   15
+# # [8, 20]     [20]    []
+# # 2   7  15   0
+# # [20]
+# # 0
+#         res =[math.inf]
+#         newCosts = list(zip(costs, [1, 7, 30]))
+#         cache = {}
+
+#         def findIdx(days, ticketDays, idx):
+#             coveredDay = days[idx] - 1 + ticketDays
+#             i = idx
+#             while i < len(days) and days[i] <= coveredDay:
+#                 i += 1
+#             return i
+            
+#         def dfs(days, newCosts, idx):
+#             if idx >= len(days):
+#                 return 0
+        
+#             if idx in cache:
+#                 return cache[idx]
+            
+#             cheap = math.inf
+#             for c, d in newCosts:
+#                 nIdx = findIdx(days, d, idx)
+#                 curCheap = dfs(days, newCosts, nIdx) + c
+#                 cheap = min(cheap, curCheap)
+#             cache[idx] = cheap
+            
+#             return cheap
+        
+#         return  dfs(days, newCosts, 0)
+
+# # dp[i] the min_cost of convered till days[i] 
+# # dp[i+1] = min(1+dp[i], 7+dp[seven], 15+dp[thirty])
+#         n = len(days)
+    
+#         dp = [0 for _ in range(n + 1)]
+#         seven = 0
+#         thirty = 0
+#         for i in range(n):
+#             # 这两个while的过程其实就是相当于我之前用的findIdx函数去找7天和15的下一个index
+#             while days[i] > days[seven] + 6:
+#                 seven += 1
+#             while days[i] > days[thirty] + 29:
+#                 thirty += 1
+            
+#             dp[i + 1] = min(costs[0] + dp[i], costs[1] + dp[seven], costs[2] + dp[thirty])
+#         return dp[-1]
