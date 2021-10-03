@@ -49,6 +49,8 @@ class Solution:
 #         return dp[0][n-1] <= k
         
         # solution 3: 压缩二维dp成一维dp
+        # 这道题是非常典型的压缩方式。详细请看那题的解法和 状态压缩：labuladong的算法小抄---对动态规划进行降维打击 https://labuladong.gitee.io/algo/3/24/65/
+
 #         思维过程：
 #         第一步：
 #         ['x',  1,   1,   1], 
