@@ -23,8 +23,6 @@ class Solution:
             
 #         return helper(s, 0, size - 1) <= k
 
-# ************************ second round *********************
-
         # 转化方程
         # dp[left][right] 到目前为止最小需要remove char的个数使 s成为一个palindrome
 #         if s[left] == s[right]:
@@ -49,8 +47,9 @@ class Solution:
 #         return dp[0][n-1] <= k
         
         # solution 3: 压缩二维dp成一维dp
-        # 这道题是非常典型的压缩方式。详细请看那题的解法和 状态压缩：labuladong的算法小抄---对动态规划进行降维打击 https://labuladong.gitee.io/algo/3/24/65/
-
+        # 关于压缩dp的维度请看文章 
+        # labuladong 的算法小抄 > 第二章、手把手刷动态规划 > 动态规划基本技巧 > 状态压缩：对动态规划进行降维打击
+        # https://labuladong.gitee.io/algo/3/24/65/
 #         思维过程：
 #         第一步：
 #         ['x',  1,   1,   1], 
@@ -95,10 +94,10 @@ class Solution:
 # if (s[5] == s[7])
 #     // dp[5][7] = dp[i+1][j-1] + 2;
 #     dp[7] = pre + 2;
+# **************精髓****************
 # 我问你这个 pre 变量是什么？是内层 for 循环上一次迭代的 temp 值。
-
 # 那我再问你内层 for 循环上一次迭代的 temp 值是什么？是 dp[j-1] 也就是 dp[6]，但这是外层 for 循环上一次迭代对应的 dp[6]，也就是二维 dp 数组中的 dp[i+1][6] = dp[6][6]。
-
+# **************精髓****************
 # 也就是说，pre 变量就是 dp[i+1][j-1] = dp[6][6]，也就是我们想要的结果。
         
         n = len(s)
