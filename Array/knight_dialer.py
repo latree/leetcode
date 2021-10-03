@@ -27,3 +27,8 @@ class Solution:
         res = sum([sum(i) for i in dp_next]) - 2
         res = res % (10**9 + 7)
         return res
+
+# ************  second round
+# dp[k][i][j] = dp[k-1][n1_i][n1_j] + ... + dp[k-1][n8_i][n8_j] assume n1_i...n8_i, and n1_j ... n8_j are within the phone pad
+        # it is easy to use two DPs to reduce 3d DP to 2d DP. 
+        
