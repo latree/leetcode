@@ -15,9 +15,12 @@ class Solution:
             nonlocal res_max
             if not node:
                 return 0
+            # 因为有负数的情况, 所以要让左右先变成非负数
             left_max = max(dfs(node.left), 0)
             right_max = max(dfs(node.right), 0)
 
+            # 因为是寻找最大的path，如果用top down 做是找不到的，因为都没有traverse 到所有的node 
+            # 如何知道最大的path？
             cur_max = node.val + left_max + right_max
             res_max = max(res_max, cur_max)
             return node.val + max(left_max, right_max)
