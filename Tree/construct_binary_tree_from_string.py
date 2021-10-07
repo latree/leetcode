@@ -23,6 +23,11 @@ class Solution:
         root = TreeNode()
         stack = [root]
         idx = 0
+        # 如果遇到的是数字：
+        # 如果遇到的是开括号
+        #     数字后面直接跟开括号
+        #     数字后面不直接跟开括号
+        # 如果遇到的是关括号
         while idx < len(s):
             node = stack.pop()
             if s[idx].isdigit() or s[idx] == '-':
