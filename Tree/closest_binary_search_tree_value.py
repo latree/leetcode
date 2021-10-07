@@ -14,6 +14,7 @@ class Solution:
         # solution 2:
         closet = root.val
         while root:
+            # 这个对于min函数的用法不是很熟悉
             closet = min(root.val, closet, key= lambda x: abs(target - x))
             if target < root.val:
                 root = root.left
