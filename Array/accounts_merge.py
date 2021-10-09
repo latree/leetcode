@@ -6,6 +6,11 @@ class Solution:
         # 然后从每个account 的每一个email 去做dfs 一旦一个email map 两个以上accouts
         # dfs 就是为了找到一个闭环然后mark 成visited
         # 这样在loop到闭环里的account 的时候就可以直接跳过
+
+        # 第二次刷的理解
+        # 主要形成一个email to idx的map，还有原本的idx to email的map
+        # 所以在go over 每一个graph的时候都标记idx 的visited，这样就会出现闭环，
+        # 也就是从idx或者emailinterate的时候都会发现当前的idx已经visited了。
         visited_accoutns = [False] * len(accounts)
         res = []
         email_accounts_map = {}
