@@ -78,3 +78,15 @@ class Solution:
             res += dfs(item, 1)
         
         return res
+
+
+
+# 第二遍心得：
+# 之前有一个错误的地方在于不适用return value，直接把res pass成param
+# 但是有一个special case 不能被catch，就是最开始的 integer item 会被忽略
+# 比如这个case 的中间的那个 value 2 [[1,1],2,[1,1]]
+# 因为
+# if nested_ele.isInteger():
+#     cur_sum += nested_ele.getInteger() * depth
+#     return
+# 这个cur_sum 在计算完以后没有被加到res里面去。如果是第一层的NestedInteger
