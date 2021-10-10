@@ -11,6 +11,18 @@ class Node:
 
 class Solution:
     def cloneGraph(self, node: 'Node') -> 'Node':
+        # ********** note **************
+        # 第二遍心得
+        # 这个created_map 是重点。在第二遍做的时候还是会出错。
+        # 闭环的case其实很容易想到，比较常见。用一个visited 就可以解决问题
+        
+        # 但是created_map，
+        # 比如 [[2,4],[1,3],[2,4],[1,3]]
+        # 这里面在 iterate到 node.val = 2 和node.val = 4 的时候都会碰到他们的邻居
+        # node.val = 3。但是这个node_3 还没有被访问，所以就会造成visited不会cover这个case
+        # 那么我们就需要用另个一created_map来记录我们之前所有已经created 过的node。这样
+        # 才会避免重复create的情况
+
         if not node:
             return None
         queue = Deque()
