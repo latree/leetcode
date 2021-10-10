@@ -64,3 +64,52 @@ class Solution:
 # 3               (a                              a
 # 4       (a)          (a(                 a)                a(
 # 5   (a)(  (a))    ...   ...         ...     ...       ...      ....
+
+
+# 第二遍心得：
+        # *************** notes ***************
+        # 1. remove min number of params, 就是到i为止多余出来的关括号加上之后又多出来的开括号
+        # 最简单的例子就是 Input: s = ")("
+        # 2. 对于开关括号的题基本就是用dfs 来做，然后tree 的样子就是每一个idx上删除和不删除当前这个括号
+        # 对于开括号怎么删，关括号怎么删要具体讨论
+        def get_min_count(s):
+            min_count, open_p = 0, 0
+            for i in range(len(s)):
+                if s[i] == "(":
+                    open_p += 1
+                elif s[i] == ")":
+                    if open_p > 0:
+                        open_p -= 1
+                    else:
+                        min_count += 1
+            return min_count + open_p
+                        
+        def dfs(s, idx, min_count, open_p, res, cur_res):
+            if idx == len(s):
+                if min_count == 0 and open_p == 0:
+                    res.add(cur_res)
+                return
+            
+            if s[idx] == "(":
+                # no deletion
+                dfs(s, idx + 1, min_count, open_p + 1, res, cur_res + s[idx])
+                # deletion
+                dfs(s, idx + 1, min_count - 1, open_p, res, cur_res)
+            elif s[idx] == ")":
+
+                # *************** notes ***************
+                # 这里必须有这个条件才能做关括号的no deletion。因为如果没有这个条件，那么
+                # no deletion 就会让open_p -1 那么如果已经没有open_p，就会导致出现负数
+                if open_p > 0:                    
+                    # no deletion
+                    dfs(s, idx + 1, min_count, open_p - 1, res, cur_res + s[idx])
+                
+                # deletion
+                dfs(s, idx + 1, min_count - 1, open_p, res, cur_res)
+            else:
+                dfs(s, idx + 1, min_count, open_p, res, cur_res + s[idx])
+                
+        min_count = get_min_count(s)
+        res = set()
+        dfs(s, 0, min_count, 0, res, "")
+        return res
