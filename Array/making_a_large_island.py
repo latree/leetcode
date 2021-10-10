@@ -75,5 +75,60 @@ class largestIsland:
                     res = max(res, 1 + sum(area[i] for i in seen))
         return res
 
+        # # 第二遍刷有三个地方容易出错，三个地方在以下的注释里
+        # def neighbors(r, c):
+        #     moves = [[0, 1], [1, 0], [0, -1], [-1, 0]]
+        #     for move in moves:
+        #         nr, nc = r + move[0], c + move[1]
+        #         if 0 <= nr < len(grid) and 0 <= nc < len(grid[0]):
+        #             yield nr, nc
+        
+        # def dfs(grid, r, c, island_flag):
+        #     if grid[r][c] == 0:
+        #         return 0
+            
+        #     grid[r][c] = island_flag
+            
+        #     res = 0
+        #     for nr, nc in neighbors(r, c):
+        #         if grid[nr][nc] == 1:
+        #             res += dfs(grid, nr, nc, island_flag)
+        #     return res + 1
+        
+        # m = len(grid)
+        # n = len(grid[0])
+        # area = {}
+        # island_flag = 2
+        # for i in range(m):
+        #     for j in range(n):
+                
+        #         # ********* note **********
+        #         # 是碰到island 陆地的时候才会开始计算和mark这个island
+        #         if grid[i][j] == 1:
+        #             area[island_flag] = dfs(grid, i, j, island_flag)
+        #             island_flag += 1
+        
+        # # ********* note **********    
+        # # 这里也容易出错，res 这时候应该是所有岛的面积最大值
+        # # 因为如果每个岛都连接不上的话，那么结果就应该是最大的岛
+        # res = 0
+        # for val in area.values():
+        #     res = max(res, val)
+
+        # for i in range(m):
+        #     for j in range(n):
+        #         if grid[i][j] == 0:
+                    
+        #             # ********* note **********
+        #             # seen 必须是一个set，因为有一个去重复的问题，
+        #             # 四个方向的grid[i][j] 有可能其中的两个或以上是同一个island
+        #             seen = set()
+        #             for nr, nc in neighbors(i, j):
+        #                 if grid[nr][nc] > 1:
+        #                     seen.add(grid[nr][nc])
+        #             res = max(res, 1 + sum([area[i] for i in seen]))
+        # return res
+        
+
     def call_function(self) -> None:
         self.largestIsland([[1, 0],[0,1]])
