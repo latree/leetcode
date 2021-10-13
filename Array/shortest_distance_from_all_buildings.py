@@ -56,3 +56,96 @@ class Solution:
                     min_dis = min(min_dis, dis)
         
         return min_dis if min_dis != math.inf else -1
+
+
+# 第二遍刷
+        # moves = [(1, 0),(0, 1),(-1, 0),(0, -1)]
+        # m = len(grid)
+        # n = len(grid[0])
+        # cache = [[0 for i in range(n)] for i in range(m)]
+        # building_pos = []
+        
+        # def bfs(r, c, cache, grid, num_reached):
+        #     queue = deque()
+        #     queue.append((r, c))
+        #     seen = set()
+        #     seen.add((r, c))
+            
+        #     dist = -1
+        #     while queue:
+        #         size = len(queue)
+        #         dist += 1
+        #         for i in range(size):
+        #             cur_r, cur_c = queue.popleft()
+        #             if grid[cur_r][cur_c] == num_reached + 1:
+        #                 grid[cur_r][cur_c] -= 1
+        #                 cache[cur_r][cur_c] += dist
+        #             for move in moves:
+        #                 nr, nc = cur_r + move[0], cur_c + move[1]
+        #                 if 0 <= nr < m and 0 <= nc < n and (nr, nc) not in seen and grid[nr][nc] == num_reached + 1:
+        #                     queue.append((nr, nc))
+        #                     seen.add((nr, nc))
+        
+        # # ***************** note *************************
+        # # 直接用 num_reached 这个var 来mark 每一个空位被几个房子reach 到了，
+        # # 每被一个房子reach 到就减一
+        # # 这样可以缩减我们做bfs的范畴，因为这个空位的值如果不等于当前已经iterate的房子的数量
+        # # 那么说明之前有房子没法到达这个空位，那么我们就直接跳过这个空位就可以了
+        # num_reached = 0
+        # for i in range(m):
+        #     for j in range(n):
+        #         if grid[i][j] == 1:
+        #             num_reached -= 1
+        #             bfs(i, j, cache, grid, num_reached)
+        
+        # res = math.inf
+        # for i in range(m):
+        #     for j in range(n):
+        #         if grid[i][j] == num_reached:
+        #             res = min(res, cache[i][j])
+        # return res if res != math.inf else -1
+        
+        
+#         # building to 0 solution
+#         moves = [(1, 0),(0, 1),(-1, 0),(0, -1)]
+#         m = len(grid)
+#         n = len(grid[0])
+#         cache = [[(0, 0)for i in range(n)] for i in range(m)]
+#         building_pos = []
+        
+#         def bfs(r, c, cache, grid):
+#             queue = deque()
+#             queue.append((r, c))
+#             seen = set()
+#             seen.add((r, c))
+            
+#             dist = -1
+#             while queue:
+#                 size = len(queue)
+#                 dist += 1
+#                 for i in range(size):
+#                     cur_r, cur_c = queue.popleft()
+#                     if grid[cur_r][cur_c] != 1:
+#                         cur_dist, cur_buildings = cache[cur_r][cur_c]
+#                         cache[cur_r][cur_c] = (cur_dist + dist, cur_buildings + 1)
+#                     for move in moves:
+#                         nr, nc = cur_r + move[0], cur_c + move[1]
+#                         if 0 <= nr < m and 0 <= nc < n and (nr, nc) not in seen and grid[nr][nc] == 0:
+#                             queue.append((nr, nc))
+#                             seen.add((nr, nc))
+        
+#         num_building = 0
+#         for i in range(m):
+#             for j in range(n):
+#                 if grid[i][j] == 1:
+#                     # building_pos.append((i, j))
+#                     num_building += 1
+#                     bfs(i, j, cache, grid)
+        
+#         res = math.inf
+#         for i in range(m):
+#             for j in range(n):
+#                 distance, num_reached = cache[i][j]
+#                 if num_reached == num_building:
+#                     res = min(res, distance)
+#         return res if res != math.inf else -1
