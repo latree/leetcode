@@ -29,3 +29,32 @@ class Solution:
             start += 1
             end -= 1
 
+
+
+# # 第二遍心得：
+#         if len(nums) < 2:
+#             return nums
+#         i, j = len(nums) - 2, len(nums) - 1
+#         while i >= 0 and nums[i] >= nums[j]:
+#             i -= 1
+#             j -= 1
+        
+#         if j == 0:
+#             return nums.sort()
+        
+#         while j < len(nums) - 1:
+#             if nums[i]  < nums[j] and nums[i] >= nums[j + 1]:
+#                 break
+#             j += 1        
+        
+#         nums[i], nums[j] = nums[j], nums[i]
+        
+#         temp = nums[i+1:len(nums)]
+#         nums[i+1:] = temp[::-1]
+        
+#         # ******************   记住array slicing 是Lst[ Initial : End : IndexJump ]
+#         # 这是不用temp的slicing的方法，不过太难理解了。如果真的用的话还是用上面的比较好
+#         # 如果reverse array的话那么array slicing的start 和end 概念也要reverse。
+#         # nums[i+1:] = nums[len(nums) - 1:i:-1]
+        
+#         return nums
