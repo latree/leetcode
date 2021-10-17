@@ -35,22 +35,21 @@ class Solution:
         # ************************** important!!!!! ********************************
         # 这道题非常好，是典型的一个例子的二分法的两种方式；找最左侧的符合条件的值，和找最右侧符合条件的值
         # 上半部分是用来找最左侧的符合条件的值，下半部分是找最右侧符合条件的值。
-        # 我还需要看一下对于二分法的总结。我总是觉得还有点地方没有融会贯通
+        具体可以看github里面我摘录的binary search的
         res = [-1, -1]
         if not nums:
             return res
         
         left, right = 0, len(nums) - 1
-        while left < right:
+        while left <= right:
             mid = left + (right - left) // 2
             
             if nums[mid] < target:
                 left = mid + 1
             else:
-                right = mid
+                right = mid - 1
         
-        
-        if nums[left] != target:
+        if left >= len(nums) or nums[left] != target:
             return res
         res[0] = left
         
@@ -65,7 +64,9 @@ class Solution:
                 left = mid + 1
             else:
                 right = mid - 1
-                
+        
+        if right < 0 or nums[right] != target:
+            return [-1, -1]
         res[1] = right
         
         return res
