@@ -17,8 +17,8 @@ class Solution:
                     zeros -= 1
                 l += 1
 
+            # 计算这个长度的时候要注意应该是i-l+1
+            # 比如[1, 2]那么idx 算长度就是 1-0+1 = 2
             res = max(i - l + 1, res)
                     
         return res
-
-                
