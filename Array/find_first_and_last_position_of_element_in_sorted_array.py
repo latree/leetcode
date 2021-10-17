@@ -54,8 +54,10 @@ class Solution:
             return res
         res[0] = left
         
-        
-        left, right = 0, len(nums) - 1
+        # 这里可以只重新设置right，继续沿用left的值
+        # 因为left就是我们要找的左边界，我们只用关心right的边界能不能找到
+        right = len(nums) - 1
+        # left, right = 0, len(nums) - 1
         while left <= right:
             mid = left + (right - left) // 2
             
