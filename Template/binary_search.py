@@ -22,3 +22,36 @@ def binary_search(array) -> int:
 
 # [Python] Powerful Ultimate Binary Search Template. Solved many problems
 # https://leetcode.com/discuss/study-guide/786126/python-powerful-ultimate-binary-search-template-solved-many-problems
+
+
+
+
+# 两个template
+
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = left + (right - left) // 2
+            
+            if nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid
+        
+        
+        if nums[left] != target:
+            return res
+        res[0] = left
+        
+        
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            mid = left + (right - left) // 2
+            
+            if nums[mid] <= target:
+                left = mid + 1
+            else:
+                right = mid - 1
+                
+        res[1] = right
+        
+        return res
