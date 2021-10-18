@@ -1,5 +1,8 @@
 
 # As for the question "When can we use binary search?", my answer is that, If we can discover some kind of monotonicity, for example, if condition(k) is True then condition(k + 1) is True, then we can consider binary search.
+# 1. 这里为什么用binary search？因为一旦判断了mid 和mid+1的大小我们就能缩小一半的搜索区域，即使array不是一个sorted array。
+#         这也是从侧面印证了，并不是不是sorted array就不能使用binary search。主要还是在看能不能找到一个条件后就可以缩小左半部或者右半部的搜索区域。如果符合就是可以用binary search
+
 
 # [Python] Powerful Ultimate Binary Search Template. Solved many problems
 # https://leetcode.com/discuss/study-guide/786126/python-powerful-ultimate-binary-search-template-solved-many-problems
