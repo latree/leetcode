@@ -35,7 +35,9 @@ class Solution:
             
         # return dummy_head.next
             
-
+            
+        # ************* important **********************
+        # ************* 这是第二次犯同样的错误了！！！！！！！！ **********************
         # 一定要审题给的lists 其实是[head, head, head]， 不是[[ListNode, ListNode], [ListNode,ListNode]]
         # 其实这道题本身并不难，难的地方在于定义heap_list里面每一个item的是什么
         if not lists:
