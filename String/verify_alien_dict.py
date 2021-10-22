@@ -29,41 +29,43 @@ class AlienSorted:
         #             return False
         # return True
         
-        # solution 2:
-        order_map = {}
-        for i, char in enumerate(order):
-            order_map[char] = i
+        # # solution 2:
+        # order_map = {}
+        # for i, char in enumerate(order):
+        #     order_map[char] = i
 
+        # for i in range(len(words) - 1):
+        #     for j in range(len(words[i])):
+        #         if j >= len(words[i + 1]):
+        #             return False
+                
+        #         if words[i][j] != words[i + 1][j]:
+        #             if order_map[words[i][j]] > order_map[words[i + 1][j]]:
+        #                 return False
+        #             break
+        # return True
+
+
+
+# 第二遍：
+        order_map = {}
+        for idx, ch in enumerate(order):
+            order_map[ch] = idx
+        
         for i in range(len(words) - 1):
             for j in range(len(words[i])):
+                # 这个条件到了当前的这个j的时候，也就是说
+                # 第一个词的长度比第二个词的长度要长。并且之前的字母都相等。
+                # 那么这个时候直接return False
                 if j >= len(words[i + 1]):
                     return False
-                
                 if words[i][j] != words[i + 1][j]:
                     if order_map[words[i][j]] > order_map[words[i + 1][j]]:
                         return False
+                    # 这个条件比较容易漏掉。
+                    # 如果当前的两个词的字母不相等，并且符合所给的顺序，那么我们就不用管之后的字母的顺序了
                     break
         return True
 
     def call_function(self) -> None:
         self.isAlienSorted(["apple","app"], "abcdefghijklmnopqrstuvwxyz")
-
-
-
-# Example 1:
-
-# Input: words = ["hello","leetcode"], order = "hlabcdefgijkmnopqrstuvwxyz"
-# Output: true
-# Explanation: As 'h' comes before 'l' in this language, then the sequence is sorted.
-# Example 2:
-
-# Input: words = ["word","world","row"], order = "worldabcefghijkmnpqstuvxyz"
-# Output: false
-# Explanation: As 'd' comes after 'l' in this language, then words[0] > words[1], hence the sequence is unsorted.
-# Example 3:
-
-# Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
-# Output: false
-# Explanation: The first three characters "app" match, and the second string is shorter (in size.) 
-# According to lexicographical rules "apple" > "app", because 'l' > '∅', 
-# where '∅' is defined as the blank character which is less than any other character (More info).
