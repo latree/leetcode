@@ -48,3 +48,14 @@ def dfs(matrix, r, c, m, n):
     print(matrix[r][c])
     if dfs(matrix, r, c + 1, m, n):
         return True
+# 下面这个也是对的
+def dfs(matrix, r, c, m, n):
+    
+    if c == n:
+         dfs(matrix, r + 1, 0, m, n)
+         return
+    if r == m:
+        return
+    
+    print(matrix[r][c])
+    dfs(matrix, r, c + 1, m, n)
