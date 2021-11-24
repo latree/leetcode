@@ -31,17 +31,20 @@ def dfs(root: Node, target: Node) -> bool:
     return False
 
 
-
+# matrix 遍历 recursion
 # 如何用recursion 来遍历嵌套for loop。比如遍历matrix
 for i in range(m):
     for j in range(n):
         print(f"{i}, {j}")
 
-# 用recursion写出来就是
-
-def dfs(matrix, i, j):
-    if j == n:
-        dfs(matrix, i + 1, 0)
-    if i == m:
-        dfs(matrix, i, j + 1)
-    dfs(matrix, i, j + 1)
+# 用recursion写出来就是这样的：
+def dfs(matrix, r, c, m, n):
+    
+    if c == n:
+        return dfs(matrix, r + 1, 0, m, n)
+    if r == m:
+        return True
+    
+    print(matrix[r][c])
+    if dfs(matrix, r, c + 1, m, n):
+        return True
