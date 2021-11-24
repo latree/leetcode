@@ -29,3 +29,19 @@ def dfs(root: Node, target: Node) -> bool:
                 stack.append(neighbor)
 
     return False
+
+
+
+# 如何用recursion 来遍历嵌套for loop。比如遍历matrix
+for i in range(m):
+    for j in range(n):
+        print(f"{i}, {j}")
+
+# 用recursion写出来就是
+
+def dfs(matrix, i, j):
+    if j == n:
+        dfs(matrix, i + 1, 0)
+    if i == m:
+        dfs(matrix, i, j + 1)
+    dfs(matrix, i, j + 1)
