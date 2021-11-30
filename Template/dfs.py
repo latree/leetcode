@@ -59,3 +59,8 @@ def dfs(matrix, r, c, m, n):
     
     print(matrix[r][c])
     dfs(matrix, r, c + 1, m, n)
+
+
+
+# ****** recursion的时间复杂度计算公式  **********
+# 对于递归相关的算法，时间复杂度这样计算（递归次数）*（递归函数本身的时间复杂度）
