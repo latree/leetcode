@@ -5,6 +5,12 @@ class Solution:
     def shortestBridge(self, grid: List[List[int]]) -> int:
         # find the first island one 1
         def dfs(grid, queue, i, j, visited, moves):
+            # 这道题的思路比较简单，就是找到第一个岛屿的所有的点，然后bfs 到第二个岛屿的点。一旦找到就return steps 因为是bfs所以一定是最短的。
+            # 刚开始的时候思路有点没有打开的原因：
+            # 认为必须要找到第一个岛屿的边缘
+            # 其实不用找到第一个岛屿的边缘。可以把所有第一个岛屿的点都放进bfs的queue里面。这样每扩散一层就是把第一个岛屿里面的所有的点都扩散一层。
+            # 在中间的点无所谓，它不可能是连接两个岛屿的shortest bridge。必须是边缘的点
+            
             # 可以没有这个stop condition， 因为stop condition 就是不能整个island的边缘。只要next move 不是grid 不是1，那么就不会继续recursion call
             # if not grid[i][j]:
             #     return
