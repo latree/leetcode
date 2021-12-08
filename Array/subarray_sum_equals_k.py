@@ -44,6 +44,8 @@ class subarraySum:
         # 尤其是在sum的题型里面。
         sum_map = {}
         cur_sum = 0
+        # ******* important *******
+        # 必须要有这个sum_map[0] = 1. 比如在第一个找到sum之和是k的时候 cur_sum - k 就是0， 如果没有，就不在这个dict里面。count就会少一个
         sum_map[0] = 1
         count = 0
         for i in range(len(nums)):
