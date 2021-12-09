@@ -66,3 +66,4 @@ class subarraySum:
 
     def call_function(self) -> None:
         print(self.subarraySum([1, 1, 1], 2))
+        
