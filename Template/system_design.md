@@ -47,4 +47,20 @@
             cons:
                 this scheme can result in non-uniform data and load distribution, since when a node is removed, the next node becomes responsible for all of the keys stored on the outgoing node
                 solution for this cons: add virtual node. 
-                
+
+
+# mocking interview notes:
+
+1. Discuss with interviewer for the functional and non-functional requriements
+2. non-functional requirement
+    availability
+    scalability
+    consistency
+    latency
+    reliability
+3. estimate and calculation the storage, traffic
+4. Design a data schema and API this part may spend small time on this. Maybe 3 mins
+5. Design the architecture. 
+6. Talk about design bottleneck and how to improve it. easy way is scaling up
+7. The mock interview does not focus too much on data sharding. 
+
