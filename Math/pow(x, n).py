@@ -18,22 +18,38 @@ class Solution:
         # return res
 
 
-        # 第二遍：
-        # 原理，这道题还是用到了exponential increase
-        # 每次以n/2的方式缩小 这样就比n-1 的方式缩小要快了很多从O(n) 变成O(logN)
-        if n < 0:
-            x =  1 / x
-            n = -n
-        res = 1
-        cur_product = x
+        # # 第二遍：
+        # # 原理，这道题还是用到了exponential increase
+        # # 每次以n/2的方式缩小 这样就比n-1 的方式缩小要快了很多从O(n) 变成O(logN)
+        # if n < 0:
+        #     x =  1 / x
+        #     n = -n
+        # res = 1
+        # cur_product = x
         
-        i = n
-        while i > 0:
-            # 从做简单的case 想就好了
-            # 比如2^1  和2^3，原理就是如果是一个单数次幂，那么我们要先乘以一个cur_product来补充这个单数的次幂
-            if i % 2 == 1:
-                res = res * cur_product
+        # i = n
+        # while i > 0:
+        #     # 从做简单的case 想就好了
+        #     # 比如2^1  和2^3，原理就是如果是一个单数次幂，那么我们要先乘以一个cur_product来补充这个单数的次幂
+        #     if i % 2 == 1:
+        #         res = res * cur_product
             
-            cur_product = cur_product ** 2
-            i = i // 2
-        return res
+        #     cur_product = cur_product ** 2
+        #     i = i // 2
+        # return res
+
+
+        # 第三遍：
+        # recursion 还是更好理解一些
+        def dfs(x, n):
+            if x == 0:
+                return 0
+            if n == 0:
+                return 1
+            
+            res = dfs(x, n // 2)
+            res = res * res
+            return res * x if n % 2 == 1 else res
+        
+        res = dfs(x, abs(n))
+        return res if n >= 0 else 1 / res
