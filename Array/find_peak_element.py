@@ -25,5 +25,5 @@ class Solution:
         # 其次，如果想一下：                 
         # if nums[mid] > nums[mid + 1]:
         #     r = mid - 1
-        # 如果mid+1 就是那个峰值。那么r直接等于mid-1，那么就会刚好错过这个峰值。所以不应该是r，而是l
+        # 如果mid 就是那个峰值。那么r直接等于mid-1，那么就会刚好错过这个峰值。所以不应该是r，而是l
         return l

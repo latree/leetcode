@@ -38,7 +38,7 @@ class Solution:
         # **** important  ******
         # 之所以要初始的时候有{0:-1} 是因为如果找到第一个相加等于k的情况的时候，没有这个初始值，那么就会判定false
         # 比如 [3, 4]  k = 7
-        mod_map = {0：-1}
+        mod_map = {0: -1}
         cur_sum = 0
         
         for i in range(len(nums)):
