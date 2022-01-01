@@ -75,10 +75,17 @@ class Solution:
 #         左边界的最大值只有可能是len(arr) - k 要不然就不够k个element了，所以right = len(arr) - k
         
         left, right = 0, len(arr) - k
+        # ******* important ************
+        # 这里不能用left <= right，之后也不能用right = mid + 1
+        # 因为这样就会有超边界的情况。
+        # 假设len(arr) - k 就是那个mid 值，那么right = mid + 1
+        # 在进入下一个循环的时候就有可能使得mid+k 超出arr size
         while left < right:
             mid = left + (right - left) // 2
             # 如果，x 靠近mid 那么答案就不可能是mid + k 以后的element。因为如果x靠近mid，那么左边界
             # 必须从mid-y开始。y是变量。 那mid-y一定比mid 小，所以mid+k已经之后的elemnet都不会reach到。所以我们要avoid这些element 所以要move right to mid
+            # 这里不能是绝对值。必须是 x - arr[mid] > arr[mid + k] - x， 我们要保证的是mid， x， mid + k  这样一个window。而且
+            # x 到mid距离要比，mid + k 到x 距离要小
             if x - arr[mid] > arr[mid + k] - x:
                 left = mid + 1
             else:
