@@ -26,36 +26,68 @@ class Solution:
 
 # # [0,1,3,50,75], lower = 0, upper = 99
 
-        # 第二遍：
-        # 这个方法比上面的方法好。思路更清晰
-        # 原理：
-        # 1. 首先遍历nums 然后只要是nums[i] 和nums[i + 1]之差大于1 的那么就会产生一个区间，把这个区间append 到res
-        # 2. 之后，如果nums是空，那么[lower, upper]就是missing 区间
-        # 3. 如果lower 到nums[0] 有missing那么就append到最前面
-        # 4. 如果nums[-1]到upper 有missing 那么就append到最后面
+        # # 第二遍：
+        # # 这个方法比上面的方法好。思路更清晰
+        # # 原理：
+        # # 1. 首先遍历nums 然后只要是nums[i] 和nums[i + 1]之差大于1 的那么就会产生一个区间，把这个区间append 到res
+        # # 2. 之后，如果nums是空，那么[lower, upper]就是missing 区间
+        # # 3. 如果lower 到nums[0] 有missing那么就append到最前面
+        # # 4. 如果nums[-1]到upper 有missing 那么就append到最后面
+        # def format_range(lower, upper):
+        #     if lower == upper:
+        #         return str(lower)
+            
+        #     return str(lower) + "->" + str(upper)
+        
+        # res = []
+        
+        # for i in range(len(nums) - 1):
+        #     pre = nums[i] 
+        #     cur = nums[i + 1]
+        #     if pre + 1 != cur:
+        #         res.append(format_range(pre + 1, cur - 1))
+
+        # if not nums:
+        #     temp = format_range(lower, upper)
+        #     return [temp]
+        
+        # if lower < nums[0]:
+        #     temp = format_range(lower, nums[0] - 1)
+        #     res = [temp] + res
+        
+        # if nums[-1] < upper:
+        #     temp = format_range(nums[-1] + 1, upper)
+        #     res = res + [temp]
+        # return res
+
+
+# 第三遍:
         def format_range(lower, upper):
             if lower == upper:
                 return str(lower)
             
-            return str(lower) + "->" + str(upper)
+            return str(lower) + '->' + str(upper)
+        
         
         res = []
-        
         for i in range(len(nums) - 1):
-            pre = nums[i] 
-            cur = nums[i + 1]
-            if pre + 1 != cur:
-                res.append(format_range(pre + 1, cur - 1))
-
+            cur = nums[i]
+            nxt = nums[i + 1]
+            if nxt - cur > 1:
+                # ****** important ******
+                # 最开始错误的认为 这个lower upper bound 可能是在nums 中间的部分。那是没读懂题意
+                # 题目中明确where all elements are in the inclusive range.
+                res.append(format_range(cur + 1, nxt - 1))
+            
         if not nums:
-            temp = format_range(lower, upper)
-            return [temp]
-        
+            return [format_range(lower, upper)]
+    
         if lower < nums[0]:
             temp = format_range(lower, nums[0] - 1)
             res = [temp] + res
         
-        if nums[-1] < upper:
+        if upper > nums[-1]:
             temp = format_range(nums[-1] + 1, upper)
-            res = res + [temp]
+            res.append(temp)
+        
         return res
