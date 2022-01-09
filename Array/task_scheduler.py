@@ -47,3 +47,6 @@ class Solution:
         max_n = frequencies.count(max_freq)
         
         return max(len(tasks), (1 + n) * (max_freq - 1) + max_n)
+
+        # **** important *******
+        # 第三遍还是有些无从下手。
