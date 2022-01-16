@@ -36,42 +36,78 @@ class Solution:
         # return dummy_head.next
             
             
-        # ************* important **********************
-        # ************* 这是第二次犯同样的错误了！！！！！！！！ **********************
-        # 一定要审题给的lists 其实是[head, head, head]， 不是[[ListNode, ListNode], [ListNode,ListNode]]
-        # 其实这道题本身并不难，难的地方在于定义heap_list里面每一个item的是什么
+        # # ************* important **********************
+        # # ************* 这是第二次犯同样的错误了！！！！！！！！ **********************
+        # # 一定要审题给的lists 其实是[head, head, head]， 不是[[ListNode, ListNode], [ListNode,ListNode]]
+        # # 其实这道题本身并不难，难的地方在于定义heap_list里面每一个item的是什么
+        # if not lists:
+        #     return
+        
+        # m = len(lists)
+        
+        # dummy = ListNode(-99999)
+        # cur = dummy
+        # ptrs = {}
+
+        # heap_list = []
+        # for i in range(m):
+        #     if not lists[i]:
+        #         continue
+        #     ptrs[i] = lists[i]
+        #     # ************* important **********************
+        #     # heap compare 的key 默认的是tuple 里面的第一个元素。而且heap compare的key 是无法customize的
+        #     heapq.heappush(heap_list, (lists[i].val, i, lists[i]))
+        
+        # while ptrs:
+        #     value, row, cur_node = heapq.heappop(heap_list)
+        #     # update ptrs next ptr in this current linkedd list
+        #     ptrs[row] = cur_node.next
+        #     if not cur_node.next:
+        #         del ptrs[row]
+        #     else:
+        #         # add new element into priority queue
+        #         next_node = ptrs[row]
+        #         heapq.heappush(heap_list, (next_node.val, row, next_node))
+            
+        #     # create Node and insert to final list
+        #     temp = ListNode(value)
+        #     cur.next = temp
+        #     cur = cur.next
+        
+        # return dummy.next
+
+    # 第三遍：
+    # 同样的审题错误导致写完以后又要重新改代码。跟第二次犯的错误是一样的
         if not lists:
             return
-        
-        m = len(lists)
-        
-        dummy = ListNode(-99999)
+        idx_map = {}
+        dummy = ListNode(-1)
         cur = dummy
-        ptrs = {}
+        last_modified_idx = -1
+        heap = []
 
-        heap_list = []
-        for i in range(m):
+        for i in range(len(lists)):
             if not lists[i]:
                 continue
-            ptrs[i] = lists[i]
-            # ************* important **********************
-            # heap compare 的key 默认的是tuple 里面的第一个元素。而且heap compare的key 是无法customize的
-            heapq.heappush(heap_list, (lists[i].val, i, lists[i]))
-        
-        while ptrs:
-            value, row, cur_node = heapq.heappop(heap_list)
-            # update ptrs next ptr in this current linkedd list
-            ptrs[row] = cur_node.next
-            if not cur_node.next:
-                del ptrs[row]
-            else:
-                # add new element into priority queue
-                next_node = ptrs[row]
-                heapq.heappush(heap_list, (next_node.val, row, next_node))
+            idx_map[i] = lists[i]
+            heapq.heappush(heap, (lists[i].val, i))
+
             
-            # create Node and insert to final list
-            temp = ListNode(value)
-            cur.next = temp
+        while idx_map:
+            if last_modified_idx != -1:
+                cur_node = idx_map[last_modified_idx]
+                heapq.heappush(heap, (cur_node.val, last_modified_idx))
+
+            val, cur_idx = heapq.heappop(heap)
+            temp_node = idx_map[cur_idx]
+            idx_map[cur_idx] = idx_map[cur_idx].next
+            last_modified_idx = cur_idx
+            
+            if not idx_map[cur_idx]:
+                del idx_map[cur_idx]
+                last_modified_idx = -1
+                
+            cur.next = temp_node
             cur = cur.next
-        
+            
         return dummy.next
