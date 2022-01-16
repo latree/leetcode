@@ -107,6 +107,12 @@ class Solution:
         
 #         return "".join(res)
 
+
+# 第三遍
+# graph coloring 和闭环的这个traverse还是没有记住。得重点回顾
+
+
+
 # # ["wrt","wrf","er","ett","rftt"]
 # # w > e
 # # t > f
