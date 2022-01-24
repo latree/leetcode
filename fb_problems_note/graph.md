@@ -20,9 +20,16 @@
 
 3. [2076. Process Restricted Friend Requests](https://leetcode.com/problems/process-restricted-friend-requests/)
 
-    还没有做过，稍后总结
+    典型的union find 用 graph的disjoint set 的方法完成。
+    用最基本的disjoint set 的implementation 会超时。
+    需要有一个size 的array 来记录每一个parent node 的手下个数。这样才能通过
 
 ## Conlution
+
+133 是bfs 要避免闭环和还没有遇到node
+269 是dfs 找出最长path
+2076 是union find， graph 当中的disjoint set
+每一道都是一个典型的graph的算法问题。
 
 ### 图的定义
 
