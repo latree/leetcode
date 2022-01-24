@@ -77,4 +77,4 @@
 1249， 921是两道括号的题目。用到的stack基本概念解题。open和close各一个stack
 1047， 1209 是remove adjacent。第一个用最简单的stack。第二题push 到stack里的内容时候需要多加一个count
 227， 636 两道题目是需要有另外辅助的var 来记录之前一次的state，从而在加一次遇到的时候需要用到前一次的state 来进行操作。
-1762 monotonic是一个常用的数据结构。
+1762 monotonic是一个常用的数据结构
