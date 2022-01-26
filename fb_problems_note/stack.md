@@ -46,7 +46,7 @@
     如果一个function从头到尾都完成了，那么我们用开始和结束时间记录出运行时间然后pop出stack
     如果一个function开始了，current log是另一个时间，那么就会计算之前那个function的运行时间，save，然后再把当前的function的运行status push stack里最后update pre_time.
 
-6. [1047. Remove All Adjacent Duplicates In String](https://leetcode.com/problemsremove-all-adjacent-duplicates-in-string/)
+6. [1047. Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
 
     原理：
     用stack来记录前一个ch。如果当前的ch 和top of stack 一样，那么pop出去
@@ -71,6 +71,17 @@
     1. 空stack 直接append
     2. 没有遇到和当前top of stack 重复的字母直接append
     3. 遇到重复度要看重复的次数是不是已经达到了k个，如果达到要pop k个，没达到就继续append
+
+9. [1944. Number of Visible People in a Queue](https://leetcode.com/problems/number-of-visible-people-in-a-queue/)
+
+10. [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
+    
+    原理：
+    单调递增stack。只有在top of stack 小于当前的value 的时候我们需要pop 出来。
+    然后进行res更新。
+
+11. [224. Basic Calculator](https://leetcode.com/problems/basic-calculator/)
+
 
 ## Conlution
 
