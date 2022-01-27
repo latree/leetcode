@@ -28,8 +28,8 @@ class lowestCommonAncestor:
         # return None
     
     # 第二遍：
-#         p1 -> p2 -> p3 -> c1 -> c2 -> c3
-# .........................q1 -> c1 -> c2 -> c3
+#         p1 -> p2 -> p3 -> c1 -> c2 -> q1 -> c1
+# ........q1 -> c1 -> c2 -> p1 -> p2 -> p3 -> c1
 #         两个人跑步，如果a，b跑到头互换path， 总会在c1遇到。
         p1, p2 = p, q
         while p1 != p2:
