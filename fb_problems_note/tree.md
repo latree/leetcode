@@ -53,7 +53,6 @@
     原理：
     bfs 遍历整个树。然后append每一层最后一个node
 
-
 7. [543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
 
     原理：
@@ -61,7 +60,82 @@
     当前的最大值 max(res[0], left + right)
     return max(right, left) + 1
 
-8.[173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)
+8. [173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)
 
     原理：
-    
+    用stack来模仿recursion call。
+    1. 基本原则就是把node.left都append到stack 里面，然后一个一个的pop出来
+    2. 每pop一个，就要向右走一步，然后再把剩余的所有left 的node都append 进去。
+
+9. [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
+
+    原理：
+    就是把一个unbanlance 的tree 先把他用inorder的顺序变成一个list
+    然后用recursion 和 二分的概念去重新construct一个新树
+
+    mid = left + (right - left) // 2
+    left = recur(nodes[:mid])
+    right = recur(modes[mid+1:])
+    nodes[mid].left = left
+    nodes[mid].right = right
+
+10. [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/)
+
+    原理：
+    dfs 美国一层都是cur_sum * 10 + root.val 然后pass到下一层
+    最后把所有到leaf的时候的cur_sum 一次一次的加起来。
+
+11. [863. All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/)
+
+    ***** 这个方法不是非常普遍的适用 ******
+    原理：
+    这道题不是特别的好想清楚。
+    这道题一共分2个case
+    case1：从target 下面的substree找到dist ==k的node，也就是if node == target: 这里表述的case。
+    case2: case2.a 是target在当前node的分枝中。如果target在左分枝，那么我们就要到**右**分支找到k-left+1 的node，也是距离target是k的node
+            case2.b 如果target在右分枝，那么我们就要到**左**分支找到k-right+1 的node，也是距离target是k的node
+            case2.c 并且在case2 中还有一种情况就是，node自己本身就是到target 等于k距离的node，那么也要加进去
+    需要注意的是这个return 是到parent 的距离。
+    遇到target的时候return 1， none的时候return -1。 target在某一个分枝里的时候return left + 1 or right + 1
+
+    **另一个比较简单的思路是把tree 直接转化为一个graph。然后直接用bfs做**
+
+12. [515. Find Largest Value in Each Tree Row](https://leetcode.com/problems/find-largest-value-in-each-tree-row/)
+
+    原理：
+    这道题就是用bfs traverse 然后每一行找一个最大值
+
+13. [536. Construct Binary Tree from String](https://leetcode.com/problems/construct-binary-tree-from-string/)
+
+    原理：
+    这道题用recursion 做比较好理解。
+    第一：pre order create node
+    然后分别把左子树的sub-string 和右子树的sub-string pass 进node.left 和node.right recursion call
+    recursion的层数就是tree的层数，分差就是tree的分差。
+    第二：最关键的是找到左子树和右子树的sub-string ，然后分割substring，分别pass 进recursion call
+    1. 第一次遇到'(' 并且当时的open param count == 1 然后left 还没有assign的时候
+        这个idx 就是左子树的开始的idx
+    2. 同理：1. 第1次遇到'(' 并且当时的open param count == 1 然后left已经assign了
+    right没有assign 那就是右子树的开始的idx
+
+14. [270. Closest Binary Search Tree Value](https://leetcode.com/problems/closest-binary-search-tree-value/)
+
+    原理：
+    基本的binary tree traverse， 
+    大于target root.left
+    小于target root.right
+
+15. [958. Check Completeness of a Binary Tree](https://leetcode.com/problems/check-completeness-of-a-binary-tree/)
+    原理：
+    bfs traverse tree
+    然后对pre_node和cur_node 进行记录。
+    一旦出现 not pre_node and cur_node，那么就是return false
+
+16. [1522. Diameter of N-Ary Tree](https://leetcode.com/problems/diameter-of-n-ary-tree/)
+    原理：
+    这道题就是 leetcode 543的变形。
+    原本只需要有left 和right的子树的长度比较，现在变成一个list of 分枝比较
+
+    1. 需要注意的点是每一个node 都会收集list of depths. sort 这个list
+        top two item 相加就是当前最大的diameter。用这个和max diameter 作比较
+    2. return len(depths) > 2 那么return 最大的depth。 否则return 仅有个depth
