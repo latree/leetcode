@@ -126,12 +126,14 @@
     小于target root.right
 
 15. [958. Check Completeness of a Binary Tree](https://leetcode.com/problems/check-completeness-of-a-binary-tree/)
+    
     原理：
     bfs traverse tree
     然后对pre_node和cur_node 进行记录。
     一旦出现 not pre_node and cur_node，那么就是return false
 
 16. [1522. Diameter of N-Ary Tree](https://leetcode.com/problems/diameter-of-n-ary-tree/)
+    
     原理：
     这道题就是 leetcode 543的变形。
     原本只需要有left 和right的子树的长度比较，现在变成一个list of 分枝比较
@@ -139,3 +141,22 @@
     1. 需要注意的点是每一个node 都会收集list of depths. sort 这个list
         top two item 相加就是当前最大的diameter。用这个和max diameter 作比较
     2. return len(depths) > 2 那么return 最大的depth。 否则return 仅有个depth
+
+17. [865. Smallest Subtree with all the Deepest Nodes](https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/)
+
+    原理:
+    在同一个dfs function里面同时track node 和depth。
+    左边大就return左边child，右边大就return 右边child
+    两遍一样大就return当前的node
+
+
+conclusion:
+938, 236, 270，就是在当前node 做一个分情况的讨论， 根据不同的case traverse 到不同的方向left or right
+314, 987, 就是把tree mark 一个row col 的坐标
+199， 515，958 bfs 当中每一行有一些不同的操作
+173 用stack 来模仿recursion call
+1382，536， 是tree recursion call 当中要拆分list 或者string 的形式。每次pass param的时候有个pivot. recur(node.left, s[:pivot]) recur(node.right, s[pivot + 1:])
+129 dfs 的最简单的变形
+863 tree 转化成一个graph，然后用bfs做
+543， 1522 diameter 在每一个node上找出一个max(left+right, cur_max)。 1522 就是一个多个数找最大
+865 recursion return了两个值，用来记录当前的node 情况。 
