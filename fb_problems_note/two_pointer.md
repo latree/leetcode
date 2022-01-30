@@ -109,6 +109,18 @@
 
     巧妙的运用到了 True is 1 and False is 0 in python
 
+14. [1004. Max Consecutive Ones III](https://leetcode.com/problems/max-consecutive-ones-iii/)
+
+    原理：
+    two pointer sliding window
+    需要有，res，l，zeros变量来记录当前的状态。
+    然后遍历move right pointer
+    1. right 发现0 zero +=1
+    2. 进入while l <= i and zeros > k
+        2.1 zeros -= 1 if nums[l] == 0
+        2.2 move l. l += 1
+    3. 记录res 的最大值。i - l + 1
+
 ## Conlution
 
 1. 680, 125 都是左右开始的两个pointer 然后向中间移动
@@ -120,3 +132,4 @@
 3. 658 是用binary search 做的。而且move pointer的条件比较特殊
 4. 253 是用priority queue 做的，其实跟求交集是大同小异
 5. 16 是move 3 个pointer。 重点是固定一个pointer 然后根据条件move 剩下的两个pointer
+6. two pointer 最重要的一类，sliding window。 

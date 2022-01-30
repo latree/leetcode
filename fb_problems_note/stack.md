@@ -75,7 +75,7 @@
 9. [1944. Number of Visible People in a Queue](https://leetcode.com/problems/number-of-visible-people-in-a-queue/)
 
 10. [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
-    
+
     原理：
     单调递增stack。只有在top of stack 小于当前的value 的时候我们需要pop 出来。
     然后进行res更新。
