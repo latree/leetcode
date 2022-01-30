@@ -101,7 +101,8 @@
 13. [825. Friends Of Appropriate Ages](https://leetcode.com/problems/friends-of-appropriate-ages/)
     
     原理
-    
+    主要的是这个公式 request(a, b) * c[a] * (c[b] - (a == b))
+    巧妙的运用到了 True is 1 and False is 0 in python
 
 
 ## Conlution
