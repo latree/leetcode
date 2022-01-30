@@ -72,12 +72,10 @@ class Solution:
         
         while left <= right:
             mid = left + (right - left) // 2
-            if cut_count(mid, ribbons) > k:
+            if cut_count(mid, ribbons) >= k:
                 # 如果left=0， right=0 那么进入这个if，那么永远是left <= right 的无限循环。
                 left = mid + 1
-            elif cut_count(mid, ribbons) == k:
-                left = mid + 1
-            elif cut_count(mid, ribbons) < k:
+            else:
                 # 如果left=0， right=0 那么进入这个if，那么永远是left <= right 的无限循环。
                 right = mid - 1
         
