@@ -99,12 +99,24 @@
     4. 最后return target - diff. 因为要找最接近的。不一定一定有target 存在在list里
 
 13. [825. Friends Of Appropriate Ages](https://leetcode.com/problems/friends-of-appropriate-ages/)
-    
-    原理
-    主要的是这个公式 request(a, b) * c[a] * (c[b] - (a == b))
-    巧妙的运用到了 True is 1 and False is 0 in python
 
+    原理
+    主要的是这个公式
+
+    ```python
+    request(a, b) * c[a] * (c[b] - (a == b))
+    ```
+
+    巧妙的运用到了 True is 1 and False is 0 in python
 
 ## Conlution
 
+1. 680, 125 都是左右开始的两个pointer 然后向中间移动
+2. 1570， 408， 88，都是pointer从同一边开始移动。88题是变形，从后面向前移动。 作比较以后进行处理
+    2.1 131， 556 也是pointer 从一遍开始，要进行好几步的不同方式的移动
+    2.2 986， 1868 是两个区间比较或者两个lists 进行计算。最后操作完成根据特殊条件决定move pointer
+    2.3 825 也是两个ptrs 从同一边move 来决定
 
+3. 658 是用binary search 做的。而且move pointer的条件比较特殊
+4. 253 是用priority queue 做的，其实跟求交集是大同小异
+5. 16 是move 3 个pointer。 重点是固定一个pointer 然后根据条件move 剩下的两个pointer
