@@ -1,4 +1,4 @@
-# linked list problem summary
+# Binary search problem summary
 
 ## Solution summary per question
 
