@@ -11,7 +11,7 @@
 
 2. [314. Binary Tree Vertical Order Traversal](https://leetcode.com/problems/binary-tree-vertical-order-traversal/)
 
-    这道题跟314 非常相似。唯一的区别就是在同一个row col 的nodes 314是从左往右排列
+    这道题跟987 非常相似。唯一的区别就是在同一个row col 的nodes 314是从左往右排列
     987是按大小排列
     原理：
     1. traverse 整个数，contruct 一个idx_map的dict {(row, col):[int]}. 因为在同一个坐标上可能会出现multiple的数值
@@ -126,14 +126,14 @@
     小于target root.right
 
 15. [958. Check Completeness of a Binary Tree](https://leetcode.com/problems/check-completeness-of-a-binary-tree/)
-    
+
     原理：
     bfs traverse tree
     然后对pre_node和cur_node 进行记录。
     一旦出现 not pre_node and cur_node，那么就是return false
 
 16. [1522. Diameter of N-Ary Tree](https://leetcode.com/problems/diameter-of-n-ary-tree/)
-    
+
     原理：
     这道题就是 leetcode 543的变形。
     原本只需要有left 和right的子树的长度比较，现在变成一个list of 分枝比较

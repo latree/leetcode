@@ -84,8 +84,9 @@ class Solution:
 #         # 需要这个函数return 一个bool来表示会不会出现闭环。
 #         # 这是一个我之前不知道的算法，graph coloring，只有用的graph coloring 才能找出
 #         # directional graph 当中的闭环
-#         # 在visited里面并且状态是True 代表这我现在正在走的path里，这个node是已经走过的
-#         # 在visited里面并且状态是False 代表这我现在正在走的path里，这个node是没走过的，而是之前的一个path走过这个node
+#         # ch 在visited 里面代表了  代表这我现在正在走的path里，这个node是已经走过的， ch 不在visited 表示没走过这个node
+#         # 在visited里面并且状态是True 代表 这个node上面有闭环
+#         # 在visited里面并且状态是False 代表这个node 上面没有闭环
 #         # 不在visited 里面代表这个node 还从来没有访问过
 #         visited = {}
 #         res = []

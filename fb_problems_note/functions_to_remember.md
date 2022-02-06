@@ -8,3 +8,6 @@ heapq.heappop(list)
 heapq.heapreplace(list, item)
 heapq.nlargest(n, iterable, key=None)
 heapq.nsmallest(n, iterable, key=None)
+
+string.find()
+start = s.find(word, start + 1)

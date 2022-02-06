@@ -94,9 +94,30 @@
 
     ch是stirng s里的字母，count就是出现的次数。如果这个string是palindrome，那么count_map里能够出现单数的ch的count的个数必须小于等于1
 
+10. [348. Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/)
+
+    原理
+    直观的方法就是用一个matrix 记录所有的步骤，然后去每一个row，col diag and anti-diag 去check
+    但是最简单的方式是把row，col diag and anti-diag 去check 用一个数值来计算。
+    player a 下了一步棋就是 + 1
+    player b 下了一步棋就是 - 1
+    最后只需要看row，col diag and anti-diag 这四个值有没有任何一个到达 n 或者-n
+
+11. [616. Add Bold Tag in String](https://leetcode.com/problems/add-bold-tag-in-string/)
+
+    原理
+    1. 这道题其实就是先找出所有match的word 的（起始，结束）位置然后保存 到location里面
+        需要注意的是这里找word 是允许重叠的。所以在用while loop 重复找 start = s.find(word, start + 1)
+    2. 根据location里面所有matching word 的idx 的（起始，结束）位置看看有没有重合的，有重合的就combine，直到没有重合的位置
+    3. 没有重合的就直接加上bold tag。
+
+12. [939. Minimum Area Rectangle](https://leetcode.com/problems/minimum-area-rectangle/)
+
 ## Conlution
 
 560， 523 用到了prefix_sum，并且用prefix_sum 进行的转化来形成一个hash map去解决问题。
 953, 398, 380 都是用ch:idx 的hash table 来解决问题。
 791, 76, 266 都是用ch:count的hash table 来解决问题。
 249 是用base:[string1, string2]
+348 是直接用一个数值来判断
+616 是区间找交集。
